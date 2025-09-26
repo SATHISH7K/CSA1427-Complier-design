@@ -1,0 +1,21 @@
+%{
+#include <stdio.h>
+%}
+
+%%
+
+[a-zA-Z_][a-zA-Z0-9_]*    { printf("\n identifier valid\n"); }
+
+.+                        { printf("\n identifier invalid\n"); }
+
+%%
+
+int yywrap(void){ return 1; }
+
+int main()
+{
+    printf("\n enter the identifier: ");
+    yylex();
+    printf("\n");
+    return 0;
+}

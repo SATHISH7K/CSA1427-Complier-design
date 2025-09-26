@@ -1,0 +1,21 @@
+%{
+#include <stdio.h>
+%}
+
+%%
+
+[A-Z]+        { printf("\n capital word valid\n"); }
+
+.+            { printf("\n capital word invalid\n"); }
+
+%%
+
+int yywrap(void){ return 1; }
+
+int main()
+{
+    printf("\n enter the word: ");
+    yylex();
+    printf("\n");
+    return 0;
+}
