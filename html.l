@@ -1,0 +1,18 @@
+%{
+#include<stdio.h>
+%}
+%%
+\<[^>]*\> fprintf(yyout,"%s\n",yytext);
+.|\n;
+%%
+int yywrap()
+{
+return 1;
+}
+int main()
+{
+yyin=fopen("hellohtml.html","r");
+yyout=fopen("output1.txt","w");
+yylex();
+return 0;
+}
